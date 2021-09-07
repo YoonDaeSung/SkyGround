@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rsv.rsvMapper">
+	
+	<!-- 객실 정보 조회 -->
+	<select id="selectBook" resultType="com.ncs.vo.rsvVO">
+		SELECT * FROM room_tbl
+	</select>
+	
+	<!-- 예약 정보 조회 -->
+	<select id="selectRsv" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT 
+			b.rm_num, b.bk_date, b.bk_days, r.rm_name,
+			r.rm_nprice, r.rm_price, r.rm_min_prs, r.rm_max_prs
+		FROM
+			booking_tbl b, room_tbl r
+		WHERE
+			b.rm_num = #{rm_num}
+		AND
+			b.rm_num = r.rm_num
+		ORDER BY 
+			b.bk_date ASC
+	</select>
+	 
+	<!-- 객실 예약-->
+	<insert id="insertBook">
+		INSERT INTO booking_tbl
+			(bk_code, rm_name, bk_date, bk_days, bk_adult, 
+			bk_child, bk_infant, bk_option, bk_total, rm_num, bk_name, email, bk_phone, em_phone, room_prce, pers_prce)
+		VALUES
+			(
+				(SELECT NVL(MAX(TO_NUMBER(bk_code) ), 0)+1 FROM booking_tbl),
+				#{rm_name}, #{bk_date}, #{bk_days}, #{bk_adult}, #{bk_child}, 
+				#{bk_infant}, #{bk_option}, ${bk_total}, #{rm_num}, #{bk_name}, #{email}, #{bk_phone}, #{em_phone}, #{room_prce}, #{pers_prce}
+			)
+	</insert>
+	
+	<!-- 예약 확인 -->
+	<select id="selectRsvCheck" resultType="com.ncs.vo.rsvVO">
+		SELECT * FROM
+			booking_tbl
+		<where>
+			<if test="bk_name != null and bk_name != '' ">
+				bk_name = #{bk_name} AND bk_phone = #{bk_phone}
+			</if>
+			<if test="email != null and email != '' ">
+				email = #{email} AND bk_phone = #{bk_phone}
+			</if>
+		</where>
+	</select>
+
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//En" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply.replyMapper">
+	
+	<!--질문 등록  --> <!--qt_turn 값은 mapper에서 마지막 turn값에서 +1을 해서 글등록한다  -->
+	<insert id="insertReply"> 
+		INSERT INTO 
+			reply_tbl(re_turn, re_contents, re_date, email, qt_turn)
+		VALUES
+			(
+				(SELECT NVL(MAX(TO_NUMBER(re_turn) ), 0)+1 FROM reply_tbl),
+				#{re_contents}, #{re_date}, #{email}, #{qt_turn}
+			)
+	</insert>
+	
+	<!-- 댓글 리스트  -->
+	<select id="selectReply" resultType="com.ncs.vo.ReplyVO">
+		SELECT * FROM 
+			reply_tbl 
+		WHERE 
+			qt_turn = #{qt_turn} 
+		ORDER BY 
+			re_turn DESC
+	</select>
+	
+	<!--댓글 삭제  -->
+	<delete id="deleteReply">
+		DELETE FROM 
+			reply_tbl
+		WHERE 
+			re_turn = #{re_turn}
+	</delete>
+	
+	<!--댓글 수정 -->
+	<update id="replyUpdate">
+		UPDATE 
+			reply_tbl 
+		SET 
+			re_contents = #{re_contents}
+		WHERE 
+			re_turn = #{re_turn}
+	</update>
+	
+</mapper>

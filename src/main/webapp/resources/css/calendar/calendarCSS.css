@@ -1,0 +1,199 @@
+.infoTbl {
+	width: 60%;
+	margin-left: 15%;
+}
+
+/* 이미지 박스 설정 */
+.imgbox{
+	margin-right: 150px;
+	width: 250px;
+	height: 150px;
+}
+/* 표 데이터 사이즈 조절 */
+.maine{
+	margin-right: 50px ;
+	font-size: 20px ;
+	font-weight: 900;
+}
+.maine_selert{
+	margin-right: 50px ;
+	font-size: 15px ;
+	font-weight: 900;
+	
+}
+/* 변동값 고정값 정렬 */
+.choice {
+	margin-right: 50px;
+	font-size: 20px;
+	font-weight: 600;
+	text-align: left;
+}
+
+/* 최종 예약 확인 란 */
+.divfinal {
+	margin-left: 40%;
+}
+
+/* 최종 예약 확인 란 세부 */
+.final {
+	font-size: 20px;
+	text-align: right;
+	font-weight: 600px;
+}
+
+ .line {
+    border-width: 1px;
+    width: 100%;
+    margin-right: 900px;
+} 
+
+/* 최종 표 선 */
+.finalline {
+	display: block;
+	border-width: 1px;
+}
+
+/* 예약 가능 표시 글자 */
+.bookkablept{
+	font-size: 20px;
+	font-weight: 900;
+	color : blue captiontext;
+}
+
+/* 예약 완료 표시 글자 */
+.finishpt{
+	font-size: 14px;
+}
+
+/* 예약 가능의 가 */
+.bookable{
+background-color: #5eb917;
+font-size: 11px;
+width: 11x;
+height: 11px;
+line-height: 11px;
+padding: 2px 1px 1px 1px;
+color:  white;
+margin-right: 3px;
+}
+
+/* 예약완료의 완 */ 
+span.finish{
+	background-color: #ff6666;
+	font-size: 11px;
+	width: 11px;
+	height: 11px;
+	line-height: 11px;
+	padding: 2px 1px 1px 1px;
+	color: white;
+	margin-right: 3px;
+}
+
+/* 달력 테이블 */
+.calender_table {
+	margin: 0 auto;
+	style="border-color:#3333FF; 
+}
+
+/* 텍스트 설정 */
+.reservation_text {
+	margin-left: 27%; 
+}
+
+
+/* 최종 표 선 태그 */
+.calendar {
+	width: "800";
+	height: "500";
+	align: "center";
+}
+
+/* 요일 표시 */
+.day{
+	text-align: center;
+	height: 30px;
+}
+
+/* 평일 */
+.days {
+	width: 100px;
+	font-size: 18px;
+	text-align: left;	
+}
+/* 일요일 */
+.dayd {
+	width: 100px;
+	color: red;
+	font-size: 18px;
+	text-align: left;
+}
+/* 토요일 */
+.dayt {
+	width: 100px;
+	color: skyblue;
+	font-size: 18px;	
+	text-align: left;
+}
+
+.kend {
+	color : black;
+	font-size: 16px;
+	font-weight: 900;
+	text-align: center;
+}
+/* 달력 */
+.center {
+	font-weight: 600px;
+	font-size: 18px;
+	height: 400px;
+	
+}
+
+.calender_table td{
+	height: 100px;	
+}
+/* 년 월 일 */
+.yymmdd {
+	text-align: center;	
+	font-weight: 900px;
+	height: 50px;	
+	font-size : 18px;
+}
+
+/* 예약 버튼 이벤트 */
+.btn {
+  background-color: green;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'BenchNine', Arial, sans-serif;
+  font-size: 1em;
+  font-size: 22px;
+  line-height: 1em;
+  outline: none;
+  padding: 12px 30px 10px;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 700;
+} 
+}
+.btn:before, .btn:after {
+  border-color: transparent;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  border-style: solid;
+  border-width: 0;
+  content: "";
+  height: 24px;
+  position: absolute;
+  width: 24px;
+}
+
+.btn:hover, .btn.hover {
+  background-color: #c47135;
+}
+
+.wrap {
+margin-top: 15%;
+}

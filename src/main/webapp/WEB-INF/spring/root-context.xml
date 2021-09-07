@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<context:component-scan base-package="com.ncs" />
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 데이터베이스 연결 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> 
+		<property name="url" value="jdbc:oracle:thin:@192.168.0.37:1521:xe" /> 
+		<!--192.168.0.3:1521:xe 형배형 서버 -->
+		<!--127.0.0.1:1521:xe 대성컴 서버 -->
+		
+		<!-- <property name="username" value="gksytest"/>
+		<property name="password" value="gksy3222"/> -->
+		
+		<property name="username" value="skygtest"/>
+		<property name="password" value="test"/>
+		
+	</bean>
+	  
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	  	<!-- MyBatis 설정 파일의 위치를 지정  : 스프링 동작시 같이 동작 하도록 -->
+	  	
+	  	<property name="configLocation" value="classpath:/mybatis-config.xml" /> 
+	  	<!-- SQL 파일의 위치를 지정합니다.  -->
+	  	
+	  	<property name="mapperLocations" value="classpath:/mapper/**/*Mapper.xml" /> 
+	  	 <!-- mappers 폴더내의 모든 폴더의 *Mapper.xml 을 인식하도록 해줌 -->
+	</bean>
+	
+	<!-- SqlSessionTemplate DB연결 & Close -->
+	<!-- sqlSessionFactory 를 생성자로 주입해서 설정 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+	 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!--스프링시큐리티 라이브러리 BcryptPasswordEncoder -->
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	
+</beans>

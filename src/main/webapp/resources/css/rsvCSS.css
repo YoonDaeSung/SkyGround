@@ -1,0 +1,118 @@
+.header {
+	background-color: #F2F2F2;
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #c8c9cb;
+	font-weight: 900;
+	text-align: left;
+	}
+.maine {
+	font-size: 20px;
+	width: 70px;
+	height:50px;
+	text-align: left;
+}
+
+span {
+	margin: 0;
+	padding: 0;
+	margin-top: -3px;
+}
+
+.checkIn {
+	cursor: pointer;
+	border: 1px solid #ffffff;
+	margin-right: 15px;
+}
+
+.checkOut on {
+	border: 1px solid #e0e1e4;
+	color: #bebebe;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.calendar{
+	margin-left : 25%;
+	width : 100px;
+	height : 30px;
+}
+
+/* 평일 */
+.days{
+	width: 100px;
+}
+
+/* 일요일 */
+.dayd{
+	width: 100px;
+	color: red;
+}
+
+/* 토요일 */
+.dayt{
+	width: 100px;
+	color: skyblue;
+}
+
+/* 예약 가능 */
+.bookable{
+	background-color: #5eb917;
+	font-size: 16px;
+	line-height: 11px;
+	padding: 2px 1px 1px 1px;
+	color:  white;
+	cursor: pointer;
+}
+
+/* 예약 완료 */ 
+.finish{
+	background-color: #ff6666;
+	font-size: 16px;
+	line-height: 11px;
+	padding: 2px 1px 1px 1px;
+	color: white;
+}
+
+/* table{ 
+	width : 80%;
+	border-collapse: collapse;
+	align-content: center;
+	border: 1px solid #cfcfcf;
+} */
+
+
+
+.day{
+	text-align: center;
+	height: 40px;
+}
+
+.yymmdd {
+	font-weight: 900px;
+	height: 50px;	
+	font-size : 30px;
+}
+
+.wrap {
+margin-top: 15%;
+
+}
+
+.tbCalendar {
+	margin: 0 auto;
+	style="border-color:#3333FF; 
+}
+
+.roomtbl {
+	margin-right: 50px;
+	font-size: 40px;
+	font-weight: 900;
+	margin-left: 40%;
+}
+
+.maine_td{
+	font-weight: 900px;
+}
